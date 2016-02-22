@@ -1,31 +1,34 @@
 {
-    "definitions": {
-        "profile": {
-            "type": "object",
-            "properties": {
-                "profileId": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string",
-                    "pattern": "^w{3,64}"
-                },
-                "birthday": {
-                    "type": "string",
-                    "pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
-                }
-            },
-            "required": [
-                "firstName",
-                "birthday"
-            ]
-        }
-    },
-    "$schema": "http://json-schema.org/draft-04/schema#",
     "schema": {
+        "definitions": {
+            "profile": {
+                "type": "object",
+                "properties": {
+                    "profileId": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "pattern": "^w{3,64}"
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+                    }
+                },
+                "required": [
+                    "firstName",
+                    "birthday"
+                ]
+            }
+        },
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "id": "account",
         "type": "object",
         "properties": {
+            "id": {
+                "type": "string"
+            },
             "username": {
                 "type": "string"
             },
@@ -43,6 +46,7 @@
         "required": [
             "username",
             "password"
-        ]
+        ],
+        "additionalProperties": false
     }
 }

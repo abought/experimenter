@@ -109,10 +109,10 @@ function bootstrapCollection(token, name) {
         ops.push({
             op: 'add',
             path: '/schema',
-            value: require(`./schemas/${name}.json`)
+            value: require(`../schemas/${name}.json`)
         });
     } catch (e) {
-        console.log(`No schema found for collection ${name}, skipping`);
+        console.log(`No schema found for collection ${name}, skipping because of error:`, e);
     }
 
     var examples = null;

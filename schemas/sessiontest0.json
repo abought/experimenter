@@ -4,6 +4,10 @@
         "id": "sessiontest0",
         "type": "object",
         "properties": {
+            "id": {
+                "id": "id",
+                "type": "string"
+            },
             "profileId": {
                 "id": "profileId",
                 "type": "string",

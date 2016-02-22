@@ -4,15 +4,15 @@
         "id": "config",
         "type": "object",
         "properties": {
-            "profilesMin": {
+            "accountsMin": {
                 "id": "profilesMin",
                 "type": "integer"
             },
-            "profilesMax": {
+            "accountsMax": {
                 "id": "profilesMin",
                 "type": "integer"
             }
         },
-        "additionalProperties": true
+        "additionalProperties": false
     }
 }

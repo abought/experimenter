@@ -4,6 +4,10 @@
         "id": "experiment",
         "type": "object",
         "properties": {
+            "id": {
+                "id": "id",
+                "type": "string"
+            },
             "title": {
                 "id": "title",
                 "type": "string"
@@ -32,6 +36,11 @@
                 "format": "date-time",
                 "type": "string"
             },
+            "lastEdited": {
+                "id": "lastEdited",
+                "format": "date-time",
+                "type": "string"
+            },
             "structure": {
                 "id": "structure",
                 "type": "array",
@@ -47,6 +56,7 @@
         "required": [
             "structure",
             "state"
-        ]
+        ],
+        "additionalProperties": false
     }
 }

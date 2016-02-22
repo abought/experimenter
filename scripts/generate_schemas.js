@@ -13,16 +13,16 @@ var CONFIG = {
         "id": "config",
         "type": "object",
         "properties": {
-            "profilesMin": {
+            "accountsMin": {
                 "id": "profilesMin",
                 "type": "integer"
             },
-            "profilesMax": {
+            "accountsMax": {
                 "id": "profilesMin",
                 "type": "integer"
             }
         },
-        "additionalProperties": true
+        "additionalProperties": false
     }
 };
 
@@ -32,6 +32,10 @@ var EXPERIMENT = {
         "id": "experiment",
         "type": "object",
         "properties": {
+            "id": {
+                "id": "id",
+                "type": "string"
+            },
             "title": {
                 "id": "title",
                 "type": "string"
@@ -55,6 +59,11 @@ var EXPERIMENT = {
                 "format": "date-time",
                 "type": "string"
             },
+            "lastEdited": {
+                "id": "lastEdited",
+                "format": "date-time",
+                "type": "string"
+            },
             "structure": {
                 "id": "structure",
                 "type": "array",
@@ -70,8 +79,8 @@ var EXPERIMENT = {
         "required": [
             "structure",
             "state"
-        ]
-        // "additionalProperties": false // TODO re-enable
+        ],
+        "additionalProperties": false
     }
 };
 
@@ -82,6 +91,10 @@ var SESSION = {
         "id": "sessiontest0",  // Script creates one particular session collection associated with one single experiment
         "type": "object",
         "properties": {
+            "id": {
+                "id": "id",
+                "type": "string"
+            },
             "profileId": {
                 "id": "profileId",
                 "type": "string",
@@ -125,30 +138,34 @@ var SESSION = {
 */
 
 var ACCOUNT = {
-    definitions: {
-        "profile": {
-            "type": "object",
-            "properties": {
-                "profileId": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string",
-                    "pattern": "^\w{3,64}"
-                },
-                "birthday": {
-                    "type": "string",
-                    "pattern": ISO_DATE_PATTERN
-                }
-            },
-            "required": ["firstName", "birthday"]
-        }
-    },
-    "$schema": "http://json-schema.org/draft-04/schema#",
     "schema": {
+        "definitions": {
+            "profile": {
+                "type": "object",
+                "properties": {
+                    "profileId": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "pattern": "^\w{3,64}"
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "pattern": ISO_DATE_PATTERN
+                    }
+                },
+                "required": ["firstName", "birthday"]
+            }
+        },
+        "$schema": "http://json-schema.org/draft-04/schema#",
+
         "id": "account",
         "type": "object",
         "properties": {
+            "id": {
+                "type": "string"
+            },
             "username": {  // TODO can this be an id?
                 "type": "string"
                 // # "pattern": commonregex.email.pattern
@@ -164,8 +181,8 @@ var ACCOUNT = {
                 }
             }
         },
-        "required": ["username", "password"]
-        // "additionalProperties": false
+        "required": ["username", "password"],
+        "additionalProperties": false
     }
 };
 
